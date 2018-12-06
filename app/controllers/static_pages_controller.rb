@@ -2,9 +2,12 @@
 
 # Handles static page for home and help.
 class StaticPagesController < ApplicationController
-  # Control landing for home.
+  # Get home.
   def home;  end
 
-  # Control landing for help.
+  # Get help.
   def help;  end
+    
+  # Get about.
+  def about;  end
 end
