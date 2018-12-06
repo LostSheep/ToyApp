@@ -4,26 +4,20 @@
 class MicropostsController < ApplicationController
   before_action :set_micropost, only: %i[show edit update destroy]
 
-  # GET /microposts
-  # GET /microposts.json
+  # GET /microposts.
+  # List microposts.
   def index
     @microposts = Micropost.all
   end
 
-  # GET /microposts/1
-  # GET /microposts/1.json
-  def show; end
-
   # GET /microposts/new
+  # Display micropost create UI.
   def new
     @micropost = Micropost.new
   end
 
-  # GET /microposts/1/edit
-  def edit; end
-
-  # POST /microposts
-  # POST /microposts.json
+  # POST /microposts.
+  # Create new micropost.
   def create
     @micropost = Micropost.new(micropost_params)
 
@@ -46,7 +40,7 @@ class MicropostsController < ApplicationController
   end
 
   # PATCH/PUT /microposts/1
-  # PATCH/PUT /microposts/1.json
+  # Update micropost.
   def update
     respond_to do |format|
       if @micropost.update(micropost_params)
@@ -65,7 +59,7 @@ class MicropostsController < ApplicationController
   end
 
   # DELETE /microposts/1
-  # DELETE /microposts/1.json
+  # DELETE micropost.
   def destroy
     @micropost.destroy
     respond_to do |format|
