@@ -1,7 +1,10 @@
-class StaticPagesController < ApplicationController
-  def home
-  end
+# frozen_string_literal: true
 
-  def help
-  end
+# Handles static page for home and help.
+class StaticPagesController < ApplicationController
+  # Control landing for home.
+  def home;  end
+
+  # Control landing for help.
+  def help;  end
 end

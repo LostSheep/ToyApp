@@ -1,28 +1,26 @@
-# frozen_string_literal: true
-
 source 'https://rubygems.org'
 
-gem 'bootsnap'
-gem 'coffee-rails'
-gem 'jbuilder'
-gem 'jquery-rails'
-gem 'puma'
 gem 'rails'
-gem 'rubocop'
+gem 'puma'
 gem 'sass-rails'
-gem 'turbolinks'
 gem 'uglifier'
+gem 'coffee-rails'
+gem 'jquery-rails'
+gem 'turbolinks'
+gem 'jbuilder'
+gem 'rubocop'
+gem 'bootsnap'
 
 group :development, :test do
-  gem 'byebug', platform: :mri
   gem 'sqlite3'
+  gem 'byebug', platform: :mri
 end
 
 group :development do
+  gem 'web-console'
   gem 'listen'
   gem 'spring'
   gem 'spring-watcher-listen'
-  gem 'web-console'
 end
 
 group :production do
@@ -30,4 +28,4 @@ group :production do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
