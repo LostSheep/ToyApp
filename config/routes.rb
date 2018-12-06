@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   
-  root 'users#index'
+  root 'static_pages#home'
   
   resources :microposts
   resources :users
