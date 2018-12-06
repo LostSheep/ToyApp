@@ -29,18 +29,18 @@ class MicropostsController < ApplicationController
 
     respond_to do |format|
       if @micropost.save
-        format.html do
+        format.html {
           redirect_to @micropost,
                       notice: 'Micropost was successfully created.'
-        end
-        format.json do
+        }
+        format.json {
           render :show, status: :created, location: @micropost
-        end
+        }
       else
         format.html { render :new }
-        format.json do
+        format.json {
           render json: @micropost.errors, status: :unprocessable_entity
-        end
+        }
       end
     end
   end
@@ -50,16 +50,16 @@ class MicropostsController < ApplicationController
   def update
     respond_to do |format|
       if @micropost.update(micropost_params)
-        format.html do
+        format.html {
           redirect_to @micropost, notice: 'Micropost was successfully updated.'
-        end
+        }
         format.json { render :show, status: :ok, location: @micropost }
       else
         format.html { render :edit }
-        format.json do
+        format.json {
           render json: @micropost.errors,
                  status: :unprocessable_entity
-        end
+        }
       end
     end
   end
