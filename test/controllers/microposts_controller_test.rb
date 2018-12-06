@@ -6,41 +6,44 @@ class MicropostsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @micropost = microposts(:one)
   end
+  
+  # Test index
 
-  test 'should get index' do
+  test 'should succeed get index' do
     get microposts_url
     assert_response :success
   end
 
-  test 'should get new' do
+  test 'should succeed get new' do
     get new_micropost_url
     assert_response :success
   end
 
-  test 'should create micropost' do
-    assert_difference('Micropost.count') do
-      post microposts_url, params: { micropost: { content: @micropost.content, user_id: @micropost.user_id } }
-    end
+# Test create
 
+  test 'should succeed post create microtest' do
+    assert_difference('Micropost.count', 1) do
+      post microposts_url, params: { micropost: { content: @micropost.content, user: @user } }
+    end
     assert_redirected_to micropost_url(Micropost.last)
   end
 
-  test 'should show micropost' do
-    get micropost_url(@micropost)
-    assert_response :success
-  end
+  # Test Update
 
-  test 'should get edit' do
-    get edit_micropost_url(@micropost)
-    assert_response :success
-  end
-
-  test 'should update micropost' do
-    patch micropost_url(@micropost), params: { micropost: { content: @micropost.content, user_id: @micropost.user_id } }
+  test 'should succeed update micropost' do
+    patch micropost_url(@micropost), params: 
+    { 
+      micropost: 
+      { content: @micropost.content, 
+      user_id: @micropost.user_id
+      }
+    }
     assert_redirected_to micropost_url(@micropost)
   end
 
-  test 'should destroy micropost' do
+  # Test Delete
+
+  test 'should succeed destroy micropost' do
     assert_difference('Micropost.count', -1) do
       delete micropost_url(@micropost)
     end
