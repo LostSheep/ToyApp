@@ -5,46 +5,52 @@ require 'test_helper'
 class MicropostsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @micropost = microposts(:one)
+    @user = users(:one)
   end
+  
+  # Test index
 
-  test 'should get index' do
-    get microposts_url
+  test 'should succeed get index' do
+    get microposts_path
     assert_response :success
   end
 
-  test 'should get new' do
-    get new_micropost_url
+  test 'should succeed get new' do
+    get new_micropost_path
     assert_response :success
   end
 
-  test 'should create micropost' do
-    assert_difference('Micropost.count') do
-      post microposts_url, params: { micropost: { content: @micropost.content, user_id: @micropost.user_id } }
-    end
+# Test create
 
-    assert_redirected_to micropost_url(Micropost.last)
+  test 'should succeed post create microtest' do
+    # assert_difference('Micropost.count', 1) do
+      post microposts_path, params: { micropost: { content: @micropost.content, user_id: @user.id } }
+    # end
+    assert_redirected_to micropost_path(Micropost.last)
   end
 
-  test 'should show micropost' do
-    get micropost_url(@micropost)
-    assert_response :success
+  # Test Update
+
+  test 'should succeed update micropost' do
+    
+    patch micropost_path(@micropost), params: 
+    { 
+      micropost: 
+      { 
+        content: @micropost.content, 
+        user_id: @micropost.user_id
+      }, format: :html
+    }
+    assert_redirected_to micropost_path(@micropost)
   end
 
-  test 'should get edit' do
-    get edit_micropost_url(@micropost)
-    assert_response :success
-  end
+  # Test Delete
 
-  test 'should update micropost' do
-    patch micropost_url(@micropost), params: { micropost: { content: @micropost.content, user_id: @micropost.user_id } }
-    assert_redirected_to micropost_url(@micropost)
-  end
-
-  test 'should destroy micropost' do
+  test 'should succeed destroy micropost' do
     assert_difference('Micropost.count', -1) do
-      delete micropost_url(@micropost)
+      delete micropost_path(@micropost)
     end
 
-    assert_redirected_to microposts_url
+    assert_redirected_to microposts_path
   end
 end
