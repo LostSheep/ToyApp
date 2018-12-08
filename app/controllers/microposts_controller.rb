@@ -20,7 +20,6 @@ class MicropostsController < ApplicationController
   # Create new micropost.
   def create
     @micropost = Micropost.new(micropost_params)
-
     respond_to do |format|
       if @micropost.save
         format.html do
