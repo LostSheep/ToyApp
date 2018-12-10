@@ -2,6 +2,7 @@
 
 # Handles static page for home and help.
 class StaticPagesController < ApplicationController
+  
   # Get home.
   def home;  end
 
