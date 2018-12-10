@@ -2,23 +2,23 @@
 
 # User view model.
 class User
-  attr_accessor :firstName, :lastName, :email
+  attr_accessor :first_Name, :last_Name, :email
   
   # Init user
   def initialize(attributes = {})
-    @firstName  = attributes[:firstName]
-    @lastName = attributes[:lastName]
+    @first_name  = attributes[:first_name]
+    @last_name = attributes[:last_name]
     @email = attributes[:email]
   end
   
   # Get user's full name.
   def full_name
-    "#{@firstName} #{lastName}"
+    "#{@first_name} #{last_Name}"
   end
   
   # Get last and first name seperated by a ', '.
   def alphabetical_name
-    "#{@lastName}, #{@firstName}"
+    "#{@last_Name}, #{@first_name}"
   end
   
   # Show user name email relation.
