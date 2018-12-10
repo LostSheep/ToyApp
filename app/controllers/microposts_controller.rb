@@ -43,16 +43,16 @@ class MicropostsController < ApplicationController
   def update
     respond_to do |format|
       if @micropost.update(micropost_params)
-        format.html {
+        format.html do
           redirect_to @micropost, notice: 'Micropost was successfully updated.'
-        }
+        end
         format.json { render :show, status: :ok, location: @micropost }
       else
         format.html { render :edit }
-        format.json {
+        format.json do
           render json: @micropost.errors,
                  status: :unprocessable_entity
-        }
+        end
       end
     end
   end

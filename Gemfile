@@ -1,32 +1,32 @@
 source 'https://rubygems.org'
 
-gem 'rails'
-gem 'puma'
-gem 'sass-rails'
-gem 'uglifier'
-gem 'coffee-rails'
-gem 'jquery-rails'
-gem 'turbolinks'
-gem 'jbuilder'
-gem 'rubocop'
 gem 'bootsnap'
+gem 'coffee-rails'
+gem 'jbuilder'
+gem 'jquery-rails'
+gem 'puma'
+gem 'rails'
+gem 'rubocop'
+gem 'sass-rails'
+gem 'turbolinks'
+gem 'uglifier'
 
 group :development, :test do
-  gem 'sqlite3'
   gem 'byebug', platform: :mri
+  gem 'sqlite3'
 end
 
 group :development do
-  gem 'web-console'
   gem 'listen'
   gem 'spring'
   gem 'spring-watcher-listen'
+  gem 'web-console'
 end
 
 group :test do
-  gem 'rails-controller-testing'
   gem 'minitest'
   gem 'minitest-reporters'
+  gem 'rails-controller-testing'
 end
 
 group :production do
@@ -34,4 +34,4 @@ group :production do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
