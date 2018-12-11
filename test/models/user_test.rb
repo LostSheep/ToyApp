@@ -16,7 +16,7 @@ class UserTest < ActiveSupport::TestCase
   end
   
   test 'sould succeed create valid user' do
-     user = User.new(name: 'john doe', email: 'unknown@email.com')
-     assert user.valid?
+    user = User.new(name: 'john doe', email: 'unknown@email.com')
+    assert user.valid?
   end
 end

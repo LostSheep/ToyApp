@@ -3,12 +3,12 @@
 # Handles static page for home and help.
 class StaticPagesController < ApplicationController
   
-  # Get home.
+  # Get static_pages/home.
   def home;  end
 
-  # Get help.
+  # Get static_pages/help.
   def help;  end
     
-  # Get about.
+  # Get static_pages/about.
   def about;  end
 end

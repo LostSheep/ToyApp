@@ -2,9 +2,8 @@
 
 require 'test_helper'
 
-# Tests micropost's class model.
+# Tests micropost model.
 class MicropostTest < ActiveSupport::TestCase
-  
   # Setup for tests.
   def setup
      @user = users(:one)
