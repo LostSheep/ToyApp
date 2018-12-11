@@ -11,4 +11,8 @@ class StaticPagesController < ApplicationController
     
   # Get static_pages/about.
   def about;  end
+
+  # Get static_pages/contact.
+  def contact;  end
 end
+
