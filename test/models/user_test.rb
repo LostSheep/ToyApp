@@ -45,7 +45,7 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
-  test "should succeed reject invalid addresses" do
+  test 'should succeed reject invalid addresses' do
     invalid_addresses = %w[user@example,com user_at_foo.org user.name@example.
                            foo@bar_baz.com foo@bar+baz.com]
     invalid_addresses.each do |invalid_address|
@@ -54,15 +54,15 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
-  test "should succeed reject non-unique email" do
+  test 'should succeed reject non-unique email' do
     duplicate_user = @user.dup
     duplicate_user.email = @user.email.upcase
     @user.save
     assert_not duplicate_user.valid?
   end
 
-  test "should succeed emails saved as lower-case" do
-    mixed_case_email = "Foo@ExAMPle.CoM"
+  test 'should succeed emails saved as lower-case' do
+    mixed_case_email = 'Foo@ExAMPle.CoM'
     @user.email = mixed_case_email
     @user.save
     assert_equal mixed_case_email.downcase, @user.reload.email
@@ -73,10 +73,8 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
-
   test 'should succeed password min length' do
     @user.password = @user.password_confirmation = 'a' * 5
     assert_not @user.valid?
   end
-
 end
