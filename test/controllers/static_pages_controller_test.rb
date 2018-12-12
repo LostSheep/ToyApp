@@ -2,9 +2,9 @@ require 'test_helper'
 
 # Tests static pages controler.
 class StaticPagesControllerTest < ActionDispatch::IntegrationTest
-  # Test setup
+  # Test setup.
   def setup
-    @base_title = 'Ruby on Rails Tutorial Sample App'
+    @base_title = Constants::PAGE_TITLE 
   end
   
   # Test static pages routing and partial view integration.

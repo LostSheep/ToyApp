@@ -7,7 +7,7 @@ class MicropostsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @micropost = microposts(:one)
     @user = users(:one)
-    @base_title = 'Ruby on Rails Tutorial Sample App'
+    @base_title = Constants::PAGE_TITLE
   end
 
   # Test index.
@@ -28,7 +28,7 @@ class MicropostsControllerTest < ActionDispatch::IntegrationTest
 
   # Test create.
 
-  test 'should succeed post create microtest' do
+  test 'should succeed post create micropost' do
     assert_difference('Micropost.count', 1) do
       post microposts_path, params: { micropost:
       { content: @micropost.content, user_id: @user.id } }
@@ -39,14 +39,15 @@ class MicropostsControllerTest < ActionDispatch::IntegrationTest
   # Test Update.
 
   test 'should succeed update micropost' do
-    patch micropost_path(@micropost), params:
-    {
-      micropost:
+    patch micropost_path(@micropost),
+      params:
       {
-        content: @micropost.content,
-        user_id: @micropost.user_id
-      }, format: :html
-    }
+        micropost:
+        {
+          content: @micropost.content,
+          user_id: @micropost.user_id
+        }, format: :html
+      }
     assert_redirected_to micropost_path(@micropost)
   end
 

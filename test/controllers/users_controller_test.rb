@@ -6,7 +6,7 @@ require 'test_helper'
 class UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = users(:one)
-    @base_title = 'Ruby on Rails Tutorial Sample App'
+    @base_title = Constants::PAGE_TITLE
   end
 
   test 'should succeed get index' do
