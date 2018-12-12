@@ -5,8 +5,8 @@ require 'test_helper'
 # Test Micropost controler CRUD actions.
 class MicropostsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @micropost = microposts(:one)
-    @user = users(:one)
+    @micropost  = microposts(:one)
+    @user       = users(:one)
     @base_title = Constants::PAGE_TITLE
   end
 
@@ -46,14 +46,14 @@ class MicropostsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should succeed update micropost' do
     patch micropost_path(@micropost),
-      params:
-      {
-        micropost:
-        {
-          content: @micropost.content,
-          user_id: @micropost.user_id
-        }, format: :html
-      }
+          params:
+          {
+            micropost:
+            {
+              content: @micropost.content,
+              user_id: @micropost.user_id
+            }, format: :html
+          }
     assert_redirected_to micropost_path(@micropost)
   end
 
