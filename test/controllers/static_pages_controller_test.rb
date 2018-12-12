@@ -7,7 +7,8 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     @base_title = 'Ruby on Rails Tutorial Sample App'
   end
   
-  # Test index
+  # Test static pages routing and partial view integration.
+
   test "should succeed get root" do
     get root_path
     assert_response :success

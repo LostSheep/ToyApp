@@ -2,15 +2,17 @@
 
 require 'test_helper'
 
-# Tests the user controll:er.
+# Tests the user controller.
 class UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = users(:one)
+    @base_title = 'Ruby on Rails Tutorial Sample App'
   end
 
   test 'should succeed get index' do
-    get users_url
+    get signup_path
     assert_response :success
+    assert_select 'title', "Sign up | #{@base_title}"
   end
 
   test 'should succeed get new' do
@@ -45,7 +47,6 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_difference('User.count', -1) do
       delete user_url(@user)
     end
-
     assert_redirected_to users_url
   end
 end
