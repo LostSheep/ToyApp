@@ -10,14 +10,15 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  # GET
 
-  # GET /users/new.
   # Display new users UI.
   def new
     @user = User.new
   end
 
-  # POST /users.
+  # POST
+
   # Create new user.
   def create
     @user = User.new(user_params)
@@ -37,26 +38,37 @@ class UsersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /users/1.
+  # PATCH/PUT
+
   # Update user.
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html do
+          redirect_to @user,
+                      notice: 'User was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @user.errors,
+                 status: :unprocessable_entity
+        end
       end
     end
   end
 
-  # DELETE /users/1.
+  # DELETE
+
   # DELETE user.
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html do
+        redirect_to users_url,
+                    notice: 'User was successfully destroyed.'
+      end
       format.json { head :no_content }
     end
   end
@@ -68,7 +80,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
+  # Never trust parameters from the scary internet,
+  # only allow the white list through.
   def user_params
     params.require(:user).permit(:name, :email)
   end
