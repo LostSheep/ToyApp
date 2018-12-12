@@ -10,7 +10,7 @@ class MicropostsController < ApplicationController
     @microposts = Micropost.all
   end
 
-  # GET /microposts/new
+  # GET /microposts/new.
   # Display micropost create UI.
   def new
     @micropost = Micropost.new
@@ -38,7 +38,7 @@ class MicropostsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /microposts/1
+  # PATCH/PUT /microposts/1.
   # Update micropost.
   def update
     respond_to do |format|
@@ -57,8 +57,8 @@ class MicropostsController < ApplicationController
     end
   end
 
-  # DELETE /microposts/1
-  # DELETE micropost.
+  # DELETE /microposts/1.
+  # Delete micropost.
   def destroy
     @micropost.destroy
     respond_to do |format|

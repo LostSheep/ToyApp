@@ -7,8 +7,8 @@ class MicropostsControllerTest < ActionDispatch::IntegrationTest
     @micropost = microposts(:one)
     @user = users(:one)
   end
-  
-  # Test index
+
+  # Test index.
 
   test 'should succeed get index' do
     get microposts_path
@@ -20,7 +20,7 @@ class MicropostsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-# Test create
+  # Test create.
 
   test 'should succeed post create microtest' do
     # assert_difference('Micropost.count', 1) do
@@ -29,9 +29,9 @@ class MicropostsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to micropost_path(Micropost.last)
   end
 
-  # Test Update
+  # Test update.
 
-  test 'should succeed update micropost' do
+  test 'should succeed patch update micropost' do
     
     patch micropost_path(@micropost), params: 
     { 
@@ -44,9 +44,9 @@ class MicropostsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to micropost_path(@micropost)
   end
 
-  # Test Delete
+  # Test destroy.
 
-  test 'should succeed destroy micropost' do
+  test 'should succeed delete destroy micropost' do
     assert_difference('Micropost.count', -1) do
       delete micropost_path(@micropost)
     end
