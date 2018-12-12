@@ -22,18 +22,18 @@ class MicropostsController < ApplicationController
     @micropost = Micropost.new(micropost_params)
     respond_to do |format|
       if @micropost.save
-        format.html {
+        format.html do
           redirect_to @micropost,
                       notice: 'Micropost was successfully created.'
-        }
-        format.json {
+        end
+        format.json do
           render :show, status: :created, location: @micropost
-        }
+        end
       else
         format.html { render :new }
-        format.json {
+        format.json do
           render json: @micropost.errors, status: :unprocessable_entity
-        }
+        end
       end
     end
   end

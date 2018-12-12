@@ -28,10 +28,16 @@ class MicropostsControllerTest < ActionDispatch::IntegrationTest
 
   # Test create.
 
-  test 'should succeed post create microtest' do
+  test 'should succeed post create micropost' do
     assert_difference('Micropost.count', 1) do
-      post microposts_path, params: { micropost:
-      { content: @micropost.content, user_id: @user.id } }
+      post microposts_path, params:
+      {
+        micropost:
+        {
+          content: @micropost.content,
+          user_id: @user.id
+        }
+      }
     end
     assert_redirected_to micropost_path(Micropost.last)
   end
