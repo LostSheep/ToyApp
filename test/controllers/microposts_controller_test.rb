@@ -46,7 +46,7 @@ class MicropostsControllerTest < ActionDispatch::IntegrationTest
 
   # Test update.
 
-  test 'should succeed update micropost' do
+  test 'should succeed patch update micropost' do
     patch micropost_path(@micropost),
           params:
           {
