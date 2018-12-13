@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 source 'https://rubygems.org'
 
 gem 'bootsnap'
@@ -23,6 +21,12 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen'
   gem 'web-console'
+end
+
+group :test do
+  gem 'minitest'
+  gem 'minitest-reporters'
+  gem 'rails-controller-testing'
 end
 
 group :production do

@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  content: MyText
+  content: A wordy but all around useless message that is also under 140 characters.
   user: one
 
 two:
-  content: MyText
+  content: Hello World!
   user: one

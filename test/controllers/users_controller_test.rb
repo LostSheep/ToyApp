@@ -2,6 +2,7 @@
 
 require 'test_helper'
 
+# Tests the user controll:er.
 class UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = users(:one)
@@ -31,6 +32,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   # Test show.
+
   test 'should succeed show user' do
     get user_url(@user)
     assert_response :success
@@ -46,7 +48,8 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   # Test update.
 
   test 'should succeed patch update user' do
-    patch user_url(@user), params: { user: { email: @user.email, name: @user.name } }
+    patch user_url(@user),
+          params: { user: { email: @user.email, name: @user.name } }
     assert_redirected_to user_url(@user)
   end
 
