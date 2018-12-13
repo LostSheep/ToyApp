@@ -2,7 +2,10 @@
 
 require 'test_helper'
 
+# Test users.
 class UserTest < ActiveSupport::TestCase
+  # Test validations.
+
   test 'should succeed empty user name' do
     user = User.new(name: '', email: 'test@email.com')
     refute user.valid?, 'user is valid without a name'

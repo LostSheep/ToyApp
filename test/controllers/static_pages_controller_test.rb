@@ -6,16 +6,17 @@ require 'test_helper'
 class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   # Test setup.
   def setup
-    @base_title = Constants::PAGE_TITLE
+    @base_title = Constants::PAGE_TITLE 
   end
 
-  # Test static pages routing and partial view integration.
+  # Test root.
 
-  # Test index
   test 'should succeed get root' do
     get root_path
     assert_response :success
   end
+
+  # Test home.
 
   test 'should succeed get home' do
     get home_path
@@ -23,11 +24,15 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     assert_select 'title', "Home | #{@base_title}"
   end
 
+  # Test help.
+
   test 'should succeed get help' do
     get help_path
     assert_response :success
     assert_select 'title', "Help | #{@base_title}"
   end
+
+  # Test about.
 
   test 'should succeed get about' do
     get about_path
