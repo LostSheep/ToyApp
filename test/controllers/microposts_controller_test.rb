@@ -54,7 +54,7 @@ class MicropostsControllerTest < ActionDispatch::IntegrationTest
             {
               content: @micropost.content,
               user_id: @micropost.user_id
-            }, format: :html
+            }
           }
     assert_redirected_to micropost_path(@micropost)
   end

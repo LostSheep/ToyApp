@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-# Tests user controller.
+# Test the user controller.
 class UsersControllerTest < ActionDispatch::IntegrationTest
   #  Setup for user tests.
   setup do
