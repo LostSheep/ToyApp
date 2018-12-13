@@ -2,7 +2,6 @@
 
 # Help static_pages view
 module StaticPagesHelper
-  
  # Return full http title.
   def full_title(page_title = '')
     base_title = "Ruby on Rails Tutorial Sample App"

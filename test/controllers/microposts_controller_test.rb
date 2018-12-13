@@ -4,10 +4,11 @@ require 'test_helper'
 
 # Test Micropost controler CRUD actions.
 class MicropostsControllerTest < ActionDispatch::IntegrationTest
+  # Setup for micropost tests.
   setup do
     @micropost = microposts(:one)
     @user = users(:one)
-    @base_title = 'Ruby on Rails Tutorial Sample App'
+    @base_title = Contant::PAGE_TITLE 
   end
 
   # Test index.
@@ -62,7 +63,6 @@ class MicropostsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Micropost.count', -1) do
       delete micropost_path(@micropost)
     end
-
     assert_redirected_to microposts_path
   end
 end
