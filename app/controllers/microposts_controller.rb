@@ -58,7 +58,7 @@ class MicropostsController < ApplicationController
   end
 
   # DELETE /microposts/1.
-  # DELETE micropost.
+  # Delete micropost.
   def destroy
     @micropost.destroy
     respond_to do |format|

@@ -8,6 +8,8 @@ class MicropostTest < ActiveSupport::TestCase
   def setup
     @user = users(:one)
   end
+  
+  # Test validations.
 
   test 'should succeed empty micropost content' do
     micropost = Micropost.new(content: '', user: @user)
