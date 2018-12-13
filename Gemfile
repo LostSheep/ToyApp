@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'bootsnap'
+gem 'bootstrap-sass'
 gem 'coffee-rails'
 gem 'jbuilder'
 gem 'jquery-rails'

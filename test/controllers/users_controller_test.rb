@@ -2,17 +2,20 @@
 
 require 'test_helper'
 
-# Tests the user controll:er.
+# Test the user controller.
 class UsersControllerTest < ActionDispatch::IntegrationTest
+  #  Setup for user tests.
   setup do
     @user = users(:one)
+    @base_title = Constants::PAGE_TITLE
   end
 
   # Test index.
 
   test 'should succeed get index' do
-    get users_url
+    get signup_path
     assert_response :success
+    assert_select 'title', "Sign up | #{@base_title}"
   end
 
   # Test new.

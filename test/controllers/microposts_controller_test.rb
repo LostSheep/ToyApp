@@ -6,9 +6,9 @@ require 'test_helper'
 class MicropostsControllerTest < ActionDispatch::IntegrationTest
   # Setup for micropost tests.
   setup do
-    @micropost = microposts(:one)
-    @user = users(:one)
-    @base_title = Contant::PAGE_TITLE 
+    @micropost  = microposts(:one)
+    @user       = users(:one)
+    @base_title = Constants::PAGE_TITLE
   end
 
   # Test index.
@@ -47,14 +47,15 @@ class MicropostsControllerTest < ActionDispatch::IntegrationTest
   # Test update.
 
   test 'should succeed patch update micropost' do
-    patch micropost_path(@micropost), params: 
-    { 
-      micropost: 
-      { 
-        content: @micropost.content, 
-        user_id: @micropost.user_id
-      }, format: :html
-    }
+    patch micropost_path(@micropost),
+          params:
+          {
+            micropost:
+            {
+              content: @micropost.content,
+              user_id: @micropost.user_id
+            }
+          }
     assert_redirected_to micropost_path(@micropost)
   end
 

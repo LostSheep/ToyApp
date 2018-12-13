@@ -32,3 +32,6 @@
 
 # Ignore Spring files.
 /spring/*.pid
+
+# Ignore vi bad write file
+*.swp
