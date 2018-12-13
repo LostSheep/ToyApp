@@ -4,6 +4,7 @@ require 'test_helper'
 
 # Test Micropost controler CRUD actions.
 class MicropostsControllerTest < ActionDispatch::IntegrationTest
+  # Setup for micropost tests.
   setup do
     @micropost  = microposts(:one)
     @user       = users(:one)
@@ -30,21 +31,22 @@ class MicropostsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should succeed post create micropost' do
     assert_difference('Micropost.count', 1) do
-      post microposts_path, params:
-      {
-        micropost:
-        {
-          content: @micropost.content,
-          user_id: @user.id
-        }
-      }
+      post microposts_path,
+           params:
+           {
+             micropost:
+             {
+               content: @micropost.content,
+               user_id: @user.id
+             }
+           }
     end
     assert_redirected_to micropost_path(Micropost.last)
   end
 
-  # Test Update.
+  # Test update.
 
-  test 'should succeed update micropost' do
+  test 'should succeed patch update micropost' do
     patch micropost_path(@micropost),
           params:
           {
@@ -52,18 +54,17 @@ class MicropostsControllerTest < ActionDispatch::IntegrationTest
             {
               content: @micropost.content,
               user_id: @micropost.user_id
-            }, format: :html
+            }
           }
     assert_redirected_to micropost_path(@micropost)
   end
 
-  # Test Destroy.
+  # Test destroy.
 
   test 'should succeed delete destroy micropost' do
     assert_difference('Micropost.count', -1) do
       delete micropost_path(@micropost)
     end
-
     assert_redirected_to microposts_path
   end
 end

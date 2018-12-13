@@ -10,15 +10,13 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  # GET
-
+  # GET /users/new.
   # Display new users UI.
   def new
     @user = User.new
   end
 
-  # POST
-
+  # POST /users.
   # Create new user.
   def create
     @user = User.new(user_params)
@@ -38,8 +36,7 @@ class UsersController < ApplicationController
     end
   end
 
-  # PATCH/PUT
-
+  # PATCH/PUT /users/1.
   # Update user.
   def update
     respond_to do |format|
@@ -59,9 +56,8 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE
-
-  # DELETE user.
+  # DELETE /users/1.
+  # Destroy user.
   def destroy
     @user.destroy
     respond_to do |format|
