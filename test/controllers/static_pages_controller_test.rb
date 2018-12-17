@@ -6,7 +6,7 @@ require 'test_helper'
 class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   # Tests setup.
   def setup
-    @base_title = Constants::PAGE_TITLE 
+    @base_title = Constants::PAGE_TITLE
   end
 
   # Test root.

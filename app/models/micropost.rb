@@ -5,6 +5,6 @@ require 'constants'
 # Validates Micropost
 class Micropost < ApplicationRecord
   belongs_to :user
-  validates :content, length: { maximum: Constants::MICROPOST_MAX_STRING_LEN },
+  validates :content, length: { maximum: Constants::MAX_STRING_LEN_MICROPOST },
                       presence: true
 end

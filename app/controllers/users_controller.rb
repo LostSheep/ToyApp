@@ -19,6 +19,7 @@ class UsersController < ApplicationController
   # POST /users.
   # Create new user.
   def create
+byebug
     @user = User.new(user_params)
 
     respond_to do |format|
