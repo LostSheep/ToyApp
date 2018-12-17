@@ -34,4 +34,4 @@
 /spring/*.pid
 
 # Ignore vi bad write file
-.swp
+*.swp
