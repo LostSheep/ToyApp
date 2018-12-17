@@ -1,11 +1,17 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
-/* variables */
+/* Mixins and variables. */
 
 $light-gray: #777;
 
-/* universal */
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+/* Universal. */
 
 body {
   padding-top: 60px;
@@ -84,6 +90,38 @@ aside {
   margin-top: 15px;
 }
 
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  background-color: white !important;
+  color: $state-danger-text;
+  display: block !important;
+  @extend .has-error;
+  .form-control {
+    border: solid 1px red;
+    color: $state-danger-text;
+  }
+}
+
 /* footer */
 
 footer {
@@ -113,4 +151,19 @@ footer {
       margin-left: 15px;
     }
   }
+}
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
 }

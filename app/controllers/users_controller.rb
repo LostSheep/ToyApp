@@ -10,6 +10,15 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  # Show /user/1.
+  def show
+    @user = User.find(params[:id])
+    if @user.nil?
+      redirect_to home_path
+    end
+    @user
+  end
+
   # GET
 
   # Display new users UI.
@@ -22,9 +31,9 @@ class UsersController < ApplicationController
   # Create new user.
   def create
     @user = User.new(user_params)
-
     respond_to do |format|
       if @user.save
+        flash[:success] = 'Welcome to the Sample App!'
         format.html do
           redirect_to @user, notice: 'User was successfully created.'
         end
@@ -83,6 +92,9 @@ class UsersController < ApplicationController
   # Never trust parameters from the scary internet,
   # only allow the white list through.
   def user_params
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit(:name,
+                                 :email,
+                                 :password,
+                                 :password_confirmation)
   end
 end
