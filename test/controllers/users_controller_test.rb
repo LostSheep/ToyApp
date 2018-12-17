@@ -2,8 +2,9 @@
 
 require 'test_helper'
 
-# Tests the user controller.
+# Test the user controller.
 class UsersControllerTest < ActionDispatch::IntegrationTest
+  #  Setup for user tests.
   setup do
     @user = users(:one)
     @user.password = '123456'
