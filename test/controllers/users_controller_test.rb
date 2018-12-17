@@ -11,16 +11,22 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     @base_title = Constants::PAGE_TITLE
   end
 
+  # Test index.
+
   test 'should succeed get index' do
     get signup_path
     assert_response :success
     assert_select 'title', "Sign up | #{@base_title}"
   end
 
+  # Test new.
+
   test 'should succeed get new' do
     get new_user_path
     assert_response :success
   end
+
+  # Test create.
 
   test 'should succeed create user' do
     assert_difference('User.count') do
@@ -38,17 +44,23 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to user_path(User.last)
   end
 
+  # Test show.
+
   test 'should succeed show user' do
     get users_path(@user)
     assert_response :success
   end
+
+  # Test edit.
 
   test 'should succeed get edit' do
     get edit_user_path(@user)
     assert_response :success
   end
 
-  test 'should succeed update user' do
+  # Test update.
+
+  test 'should succeed patch update user' do
     patch user_path(@user),
           params:
           {
@@ -62,7 +74,9 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to user_path(@user)
   end
 
-  test 'should succeed destroy user' do
+  # Test destroy.
+
+  test 'should succeed delete destroy user' do
     assert_difference('User.count', -1) do
       delete user_path(@user)
     end
