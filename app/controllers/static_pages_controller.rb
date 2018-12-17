@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Handles static page for home and help.
+# Handles static page for home, help, about and contact.
 class StaticPagesController < ApplicationController
   # GET static_pages/home.
   # Display home page.
