@@ -21,12 +21,12 @@ class User < ApplicationRecord
             length: { minimum: Constants::MIN_STRING_LEN_PASSWORD }
 
   class << self
-  # Returns the hash digest of the given string.
-  def digest(string)
-    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MINCOST :
-                                                  BCrypt::Engine.cost
-    BCrypt::Password.create(string,cost: cost)
-  end
+    # Returns the hash digest of the given string.
+    def digest(string)
+      cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MINCOST :
+                                                    BCrypt::Engine.cost
+      BCrypt::Password.create(string, cost: cost)
+    end
 
     # Returns a random token.
     def new_token
@@ -39,10 +39,11 @@ class User < ApplicationRecord
     self.remember_token = User.new_token
     update_attribute(:remember_digest, User.digest(remember_token))
   end
-  
+
   # Returns true if the given toek nmatches the digest.
   def authenticated?(remember_token)
     return false if remember_digest.nil?
+
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
 

@@ -11,12 +11,10 @@ class UsersController < ApplicationController
   end
 
   # Show /user/1.
-  # Display user info. 
+  # Display user info.
   def show
     @user = User.find(params[:id])
-    if @user.nil?
-      redirect_to home_path
-    end
+    redirect_to home_path if @user.nil?
     @user
   end
 
