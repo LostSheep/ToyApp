@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'bootsnap'
 gem 'bootstrap-sass'
+gem 'bootstrap-will_paginate'
 gem 'bcrypt'
 gem 'coffee-rails'
 gem 'faker'
@@ -13,6 +14,7 @@ gem 'rubocop'
 gem 'sass-rails'
 gem 'turbolinks'
 gem 'uglifier'
+gem 'will_paginate'
 
 group :development, :test do
   gem 'byebug', platform: :mri

@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   # GET /users.
   # List Users.
   def index
-    @users = User.all
+    @users = User.paginate(page: params[:page])
   end
 
   # Show /user/1.
