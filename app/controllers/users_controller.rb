@@ -15,8 +15,8 @@ class UsersController < ApplicationController
   # Show /user/1.
   # Display user info.
   def show
-    @user = User.find(params[:id])
-    redirect_to home_path if @user.nil?
+    @user = User.where(activated: true).fine(params[:id])
+    redirect_to root_path and return unless !@user.nil?
     @user
   end
 
@@ -32,14 +32,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
-        log_in @user
-        flash[:success] = 'Welcome to the Sample App!'
-        format.html do
-          redirect_to @user, notice: 'User was successfully created.'
-        end
-        format.json do
-          render :show, status: :created, location: @user
-        end
+        @user.send_activation_email
+        flash[:info] = 'Please check your email to activate yor account.'
+        redirect_to root_url
       else
         render 'new'
       end
