@@ -9,13 +9,13 @@ class UsersController < ApplicationController
   # GET /users.
   # List Users.
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.where(activated: true).paginate(page: params[:page])
   end
 
   # Show /user/1.
   # Display user info.
   def show
-    @user = User.where(activated: true).fine(params[:id])
+    @user = User.find(params[:id])
     redirect_to root_path and return unless !@user.nil?
     @user
   end
