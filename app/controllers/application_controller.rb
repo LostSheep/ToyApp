@@ -2,6 +2,9 @@
 
 # Handle hellos and fairwells.
 class ApplicationController < ActionController::Base
+  protect_from_forgery with: :exception
+  include SessionsHelper
+
   # Render Hello World.
   def hello
     render html: 'hello world'
