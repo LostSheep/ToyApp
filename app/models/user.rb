@@ -18,7 +18,8 @@ class User < ApplicationRecord
   has_secure_password
   validates :password,
             presence: true,
-            length: { minimum: Constants::MIN_STRING_LEN_PASSWORD }
+            length: { minimum: Constants::MIN_STRING_LEN_PASSWORD },
+            allow_nil: true
 
   class << self
     # Returns the hash digest of the given string.
