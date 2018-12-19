@@ -8,6 +8,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# Create an admin account for admin access.
 User.create!(name:                  'Example User',
              email:                 'example@railstutorial.org',
              password:              'foobar',
@@ -16,7 +17,7 @@ User.create!(name:                  'Example User',
              activated: true,
              activated_at: Time.zone.now)
 
-
+# Use fake to prepopulate several users.
 99.times do |n|
   name = Faker::Name.name
   email = "example-#{n+1}@railsTutorial.org"
@@ -27,4 +28,11 @@ User.create!(name:                  'Example User',
              password_confirmation: password,
              activated: true,
              activated_at: Time.zone.now)
+end
+
+# Give the top 6 users 50 microposts.
+users = User.order(:created_at).take(6)
+50.times do
+  content = Faker::Lorem.sentence(5)
+  users.each{ |user| user.microposts.create!(content: content) }
 end

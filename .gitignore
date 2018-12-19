@@ -35,3 +35,6 @@
 
 # Ignore vi bad write file
 *.swp
+
+# Ignore uploaded test images
+/public/uploads
